@@ -83,7 +83,7 @@ jobs:
 
       - name: Invoke script A
         run: |
-          chmod +x apps/ready.sh
+          chmod +x apps/A.sh
           ./apps/A.sh
 
       - name: Clean Code
@@ -226,7 +226,7 @@ jobs:
       - name: Invoke script B
         run: |
           chmod +x apps/B.sh
-          ./apps/finish.sh
+          ./apps/B.sh
 
       - name: Upload bin directory
         uses: actions/upload-artifact@main
