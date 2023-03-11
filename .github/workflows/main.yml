@@ -81,6 +81,11 @@ jobs:
           tar -xJf `pwd`/${SDK_NAME}.tar.xz --strip-components=1 -C ~/openwrt-sdk
           ln -s ${HOME}/openwrt-sdk ${SDK_NAME}
 
+      - name: Invoke script A
+        run: |
+          chmod +x apps/ready.sh
+          ./apps/A.sh
+
       - name: Clean Code
         run: |
           rm -f ${SDK_NAME}/package/linux/modules/*
@@ -217,6 +222,11 @@ jobs:
         run: |
           cd ${SDK_NAME}/bin/packages/${SDK_ARCH}
           rm -rf base luci
+
+      - name: Invoke script B
+        run: |
+          chmod +x apps/B.sh
+          ./apps/finish.sh
 
       - name: Upload bin directory
         uses: actions/upload-artifact@main
